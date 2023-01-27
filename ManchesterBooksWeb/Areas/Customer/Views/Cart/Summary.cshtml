@@ -1,4 +1,6 @@
 ﻿@model ManchesterBooksWeb2.Models.View_Models.ShoppingCartVM
+@using Microsoft.Extensions.Options
+@inject IOptions<ManchesterBooksWeb2.Utility.StripeSettings> Stripe
 
 <form method="post">
 	<br />
