@@ -20,6 +20,10 @@ namespace ManchesterBooksWeb2.DataAccess.Repository.IRepository
 
         IApplicationUserRepository ApplicationUser { get; }
 
+        IOrderDetailRepository OrderDetail { get; }
+
+        IOrderHeaderRepository OrderHeader { get; }
+
 
 
 
