@@ -10,10 +10,12 @@ using ManchesterBooksWeb2.Models.View_Models;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.IO;
-
+using ManchesterBooksWeb2.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ManchesterBooksWeb.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = SD.Role_Admin)]
 
 public class ProductController : Controller
 {

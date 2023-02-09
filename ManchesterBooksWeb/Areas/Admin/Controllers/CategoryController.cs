@@ -5,10 +5,12 @@ using ManchesterBooksWeb2.DataAccess.Repository.IRepository;
 using System.Collections.Generic;
 using System.Linq;
 using ManchesterBooksWeb2.DataAccess.Repository;
-
+using Microsoft.AspNetCore.Authorization;
+using ManchesterBooksWeb2.Utility;
 
 namespace ManchesterBooksWeb.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = SD.Role_Admin)]
 
 public class CategoryController : Controller
 {

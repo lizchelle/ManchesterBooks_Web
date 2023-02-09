@@ -5,11 +5,12 @@ using ManchesterBooksWeb2.DataAccess.Repository.IRepository;
 using System.Collections.Generic;
 using System.Linq;
 using ManchesterBooksWeb2.DataAccess.Repository;
-
-
+using ManchesterBooksWeb2.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ManchesterBooksWeb.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = SD.Role_Admin)]
 
 public class CoverTypeController : Controller
 {
