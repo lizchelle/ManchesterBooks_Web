@@ -39,7 +39,7 @@ namespace ManchesterBooksWeb2.Utility
             //return Task.CompletedTask;
 
             var client = new SendGridClient(SendGridSecret);
-            var from = new EmailAddress("liz.michelle@bell.net", "Manchester Books");
+            var from = new EmailAddress("sales@linfininaturel.com", "Manchester Books");
             var to = new EmailAddress(email);
             var msg = MailHelper.CreateSingleEmail(from, to, subject, "", htmlMessage);
             return client.SendEmailAsync(msg);

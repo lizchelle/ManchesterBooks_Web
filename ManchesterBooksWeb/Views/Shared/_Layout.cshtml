@@ -1,4 +1,6 @@
-﻿@using ManchesterBooksWeb2.Utility
+﻿@using Microsoft.AspNetCore.Http
+@using ManchesterBooksWeb2.Utility
+@inject IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +41,8 @@
 
             <div class="dropdown-divider"></div>
             <a class="dropdown-item " asp-area="Admin" asp-controller="Company" asp-action="Index">Company</a>
+                 <div class="dropdown-divider"></div>
+                <a class="dropdown-item " asp-area="Identity" asp-page="/Account/Register">Create User</a>
           </div>
         </li>
         }
@@ -48,11 +52,13 @@
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
-                <i class="bi bi-cart"></i>
-            </a>
-        </li>
+                                 <li class="nav-item">
+                                   <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
+                                     @await Component.InvokeAsync("ShoppingCart")
+                                   </a>
+                                   </li>
+                        
+
       </ul>
       <partial name="_LoginPartial" />
                     @*<form class="d-flex">

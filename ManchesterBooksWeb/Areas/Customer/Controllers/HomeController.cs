@@ -1,5 +1,6 @@
 ﻿using ManchesterBooksWeb2.DataAccess.Repository.IRepository;
 using ManchesterBooksWeb2.Models;
+using ManchesterBooksWeb2.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
@@ -55,13 +56,17 @@ namespace ManchesterBooksWeb.Areas.Customer.Controllers;
         if (cartFromDb == null) {
 
             _unitOfWork.ShoppingCart.Add(shoppingCart);
+            _unitOfWork.Save();
+            HttpContext.Session.SetInt32(SD.SessionCart,
+                _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count);
         }
         else
         {
             _unitOfWork.ShoppingCart.IncrementCount(cartFromDb, shoppingCart.Count);
+            _unitOfWork.Save();
         }
                      
-        _unitOfWork.Save();
+       
 
         return RedirectToAction(nameof(Index));
     }
