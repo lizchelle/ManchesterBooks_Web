@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ManchersterBooksWeb.Models\ManchesterBooksWeb2.Models.csproj" />
+    <ProjectReference Include="..\ManchesterBooksWeb.Utility\ManchesterBooksWeb2.Utility.csproj" />
 	
   </ItemGroup>
 
